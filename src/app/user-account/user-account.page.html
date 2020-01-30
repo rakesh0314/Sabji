@@ -1,0 +1,77 @@
+<ion-header>
+    <ion-toolbar color="success">
+        <ion-buttons slot="start">
+            <ion-menu-button> </ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button fill="clear" color="light" [routerLink]="['/edit-profile']">Edit</ion-button>
+        </ion-buttons>
+        <ion-title>User account</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="userData">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="3.5"></ion-col>
+                    <ion-col>
+                        <ion-img src="../assets/images/user.png" class="user_img"></ion-img>
+                    </ion-col>
+                    <ion-col size="3.5"></ion-col>
+                </ion-row>
+            </ion-grid>
+        </li>
+        <li class="list-group-item" *ngIf="userData.clt_name">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="4">User Name</ion-col>
+                    <ion-col size="1">:</ion-col>
+                    <ion-col size="7">{{userData.clt_name}}</ion-col>
+                </ion-row>
+            </ion-grid>
+        </li>
+        <li class="list-group-item" *ngIf="userData.clt_conno">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="4">Contact</ion-col>
+                    <ion-col size="1">:</ion-col>
+                    <ion-col size="7">{{userData.clt_conno}}</ion-col>
+                </ion-row>
+            </ion-grid>
+        </li>
+        <li class="list-group-item" *ngIf="userData.clt_email!=''">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="4">Email</ion-col>
+                    <ion-col size="1">:</ion-col>
+                    <ion-col size="7">{{userData.clt_email}}</ion-col>
+                </ion-row>
+            </ion-grid>
+        </li>
+    </ul>
+    <!-- <ion-list>
+        <ion-item [routerLink]="['/mywallet']">
+            <ion-label class="size" color="success">My wallet</ion-label>
+            <ion-icon name="arrow-dropright" slot="end"></ion-icon>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-item [routerLink]="['/orderhistory']">
+            <ion-label class="size" color="success">My Orders</ion-label>
+            <ion-icon name="arrow-dropright" slot="end"></ion-icon>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-item [routerLink]="['/deliveryaddress']">
+            <ion-label class="size" color="success">My Address</ion-label>
+            <ion-icon name="arrow-dropright" slot="end"></ion-icon>
+        </ion-item>
+    </ion-list> -->
+    <!-- <ion-list>
+        <ion-item>
+            <ion-label class="size" color="success">Logout</ion-label>
+            <ion-icon name="arrow-dropright" slot="end"></ion-icon>
+        </ion-item>
+    </ion-list> -->
+</ion-content>

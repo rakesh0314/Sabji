@@ -1,0 +1,96 @@
+
+	.img{
+		height: 198px;
+		width: 254px;
+	}
+	.h1{
+		text-align: left;
+		font-size: 25px;
+		font-family: 'Roboto', sans-serif;
+		padding-left: 10px;
+	}
+	.h2{
+		text-align: left;
+		font-size: 18px;
+		font-family: 'Roboto', sans-serif;
+		padding-left: 10px;
+		color: #2d3436;
+
+	}
+
+	.p{
+		font-size: 15px; padding-left: 10px;font-family: 'Roboto', sans-serif; color: #2d3436;
+	}
+
+	.slide-size{
+		height: 360px;
+		width: 198px; 
+
+	}
+
+	.text_style{
+		text-align: left;
+		font-size: 20px;
+		font-family: 'Roboto', sans-serif;
+		padding-left: 10px;
+	}
+	h1.heading{
+		font-size: 18px;
+		color: #2d3436;
+		padding-top: 15px;
+	}
+	.price{
+		font-size: 14px;
+		color:#8f8f8f;
+		padding-left: 10px;
+	}
+	.discount{
+		font-size: 14px;
+		color:#e95f62;
+		padding-left: 10px;
+	}
+	.taxes{
+		font-size: 14px;
+		color:#8f8f8f;
+		padding-left: 10px;
+	}
+	.slider_border{
+		border-bottom: 1px solid #eee;
+	}
+	.border_bottom{
+		border-bottom: 1px solid #eee;
+	}
+	
+	.span_btns1{
+	background: #ffbe76;
+    color: #fff;
+    border-radius: 5px 0px 0px 5px;
+    
+    
+	}
+	.span_btns2{
+	background: #4cd137;
+    color: #fff;
+    border-radius: 0px 5px 5px 0px;
+    
+    
+	}
+	a, u {
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    padding-left: 15px;
+}
+.col_padding{
+	padding: 12px;
+}
+.sliders{
+	overflow-x: auto;
+	justify-content: flex-start;
+}
+.frame{
+	width: 140px;
+	height: 230px;
+	border:1px solid black;
+}

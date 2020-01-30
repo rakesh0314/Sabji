@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Terms & Conditions</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text=""></ion-back-button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="terms">
+	<ion-grid>
+		<ion-row>
+			<ion-col>
+				<h3>{{terms.title}}</h3>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col size='12' *ngFor="let data of terms.termsdata">
+				<h5>{{data.subject}}</h5>
+				<p>{{data.content}}</p>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>About us</ion-title>
+     <ion-buttons slot="start">
+        <ion-back-button defaultHref="home" text="" icon="close"></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="data">
+	<ion-grid>
+		<ion-row  *ngIf="data.image!=''">
+			<ion-col>
+				<ion-img class="img"  src="https://sabji.co.in/{{data.image}}"></ion-img>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<h3>{{data.header}}</h3>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col size='12' *ngFor="let about of data.aboutdata">
+				<h5>{{about.subject}}</h5>
+				<p>{{about.content}}</p>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

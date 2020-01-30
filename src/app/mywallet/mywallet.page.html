@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>My wallet</ion-title>
+     <ion-buttons slot="start">
+        <ion-back-button defaultHref="home" text="" icon="close"></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!-- content starts here -->
+<ion-content>
+	<ion-grid>
+		<ion-row>
+			<ion-col>
+				<ion-card>
+					<ion-grid>
+						<ion-row>
+							<ion-col></ion-col>
+							<ion-col size="6">
+								<p><ion-icon name="person"></ion-icon> User name</p>
+							</ion-col>
+							<ion-col></ion-col>
+							<!-- <ion-col size="6">
+								<p>User name</p>
+							</ion-col> -->
+						</ion-row>
+						<ion-row>
+							<ion-col>
+								<h2>Rs.XXXX</h2>
+							</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col>
+								<ion-button color="success" expand="block" size="small" href="add-money"><ion-icon name="add"></ion-icon>Add Money</ion-button>
+							</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col>
+								<ion-button color="success" expand="block" size="small" href="add-bankaccount"><ion-icon name="add"></ion-icon>Add Bank account</ion-button>
+							</ion-col>
+						</ion-row>
+						<ion-item-divider></ion-item-divider>
+						<ion-row>
+							<ion-col></ion-col>
+							<ion-col size="6">
+								<p><ion-icon name="refresh"></ion-icon> All transaction history</p>
+							</ion-col>
+							<ion-col></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col>
+								<p> dd/mm/yyyy 00:00</p>
+							</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

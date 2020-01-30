@@ -1,0 +1,77 @@
+<link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+<ion-header>
+  <ion-toolbar color="success">
+  	<ion-title>Registration Details</ion-title>
+     <!-- <ion-buttons slot="start">
+        <ion-back-button defaultHref="home" text="" icon="close"></ion-back-button>
+      </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+	<h1>Sabji</h1>
+	<!-- <form [formGroup]="userdetails" ngSubmit="userUpdate()"> -->
+	<ion-grid>
+				<ion-item>
+					<ion-label position="floating"><ion-icon name="person" slot="start"></ion-icon> Name</ion-label>
+            <ion-input name="first_name" [(ngModel)]="userData.first_name" ></ion-input>
+				</ion-item>
+				<!-- <ion-item no-lines *ngIf="( userdetails.get('first_name').hasError('minlength') || userdetails.get('first_name').hasError('maxlength') ||userdetails.get('first_name').hasError('pattern') ||userdetails.get('first_name').hasError('required') ) && userdetails.get('first_name').touched">
+					<div class="error" *ngIf="userdetails.get('first_name').hasError('required') && userdetails.get('first_name').touched">
+					  Please input your Fullname
+					</div>
+					<div class="error" *ngIf="userdetails.get('first_name').hasError('minlength') && userdetails.get('first_name').touched">
+					  Minimum 4 characters
+					</div>
+					<div class="error" *ngIf="userdetails.get('first_name').hasError('maxlength') && userdetails.get('first_name').touched">
+					  Maximum 30 characters
+					</div>
+					<div class="error" *ngIf="userdetails.get('first_name').hasError('pattern') && userdetails.get('first_name').touched">
+					  Just use alphabet character
+					</div>
+				  </ion-item> -->
+      <ion-item>
+            <ion-label position="floating"><ion-icon name="lock" slot="start"></ion-icon> Password</ion-label>
+            <ion-input type="password" name="password" [(ngModel)]="userData.password" ></ion-input>
+      </ion-item>
+      <!-- <ion-item no-lines *ngIf="( userdetails.get('password').hasError('minlength') ||userdetails.get('password').hasError('required') ) && userdetails.get('password').touched">
+        <div class="error" *ngIf="userdetails.get('password').hasError('required') && userdetails.get('password').touched">
+          Please Enter your Password
+        </div>
+        <div class="error" *ngIf="userdetails.get('password').hasError('minlength') && userdetails.get('password').touched">
+          Please Enter Minimum 8 latter
+        </div>
+      </ion-item> -->
+      <ion-item>
+              <ion-label position="floating"><ion-icon name="lock" slot="start"></ion-icon> Confirm Password</ion-label>
+              <ion-input type="password" name="c_password" [(ngModel)]="userData.c_password" ></ion-input>
+      </ion-item>
+	    <!-- <ion-item no-lines *ngIf="( userdetails.get('c_password').hasError('minlength') ||userdetails.get('c_password').hasError('required') ||userData.password!=userData.c_password ) && userdetails.get('c_password').touched">
+        <div class="error" *ngIf="userdetails.get('c_password').hasError('required') && userdetails.get('c_password').touched">
+          Please Enter your Password
+        </div>
+        <div class="error" *ngIf="userdetails.get('c_password').hasError('minlength') && userdetails.get('c_password').touched">
+          Please Enter Minimum 8 latter
+        </div>
+        <div class="error" *ngIf="userData.password!=userData.c_password">
+          Password is not mathed
+        </div>
+      </ion-item> -->
+     </ion-grid>
+     <ion-grid>
+     	<ion-row>
+         <ion-col size="1"><ion-checkbox [(ngModel)]="checktnc"></ion-checkbox></ion-col>
+         <ion-col size="11">I have read the <ion-label color="success" [routerLink]="['/','terms']">Terms & Conditions</ion-label></ion-col> 
+         <ion-col size="2">
+     		</ion-col>
+     		<ion-col>
+     			<ion-button type="submit" [disabled]="checktnc!=true" color="success" size="medium" expand="block" (click)="userUpdate()">Submit</ion-button>
+     		</ion-col>
+     		<ion-col size="2">
+     		</ion-col>
+     	</ion-row>
+	 </ion-grid>
+	 <!-- </form> -->
+     <p style="padding-bottom: 10px;"></p>
+</ion-content>

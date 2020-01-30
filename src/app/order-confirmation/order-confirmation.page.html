@@ -1,0 +1,93 @@
+<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+<ion-header>
+  <ion-toolbar color="success">
+  	<ion-title>Order Confirmation</ion-title>
+     <!-- <ion-buttons slot="start">
+        <ion-back-button defaultHref="home" text="" icon="close"></ion-back-button>
+      </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="data">
+	<h3>Order is placed!!</h3>
+	<ion-grid>
+		<ion-row>
+			<ion-col size="4"></ion-col>
+			<ion-col>
+				<img src="../assets/images/confirm.png">
+			</ion-col>
+			<ion-col size="4"></ion-col>
+		</ion-row>
+	</ion-grid>
+	<!-- <h3>Payment details</h3>
+	<ion-card *ngIf='data' [routerLink]="['/','order',data.id]">
+			<ion-grid>
+				<ion-row>
+					<ion-col>
+						<h4>{{data.id}}</h4>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p>{{data.bill_no}}</p>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p *ngIf="data.paid_status==1">Online Payment</p>
+						<p *ngIf="data.paid_status==2">Cash ON Delivery</p>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p>{{data.service_charge}}</p>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col size="6">
+						<p>{{data.quantity}}</p>
+					</ion-col>
+					<ion-col size="6">
+						<p *ngIf="data.status==0">Pending</p>
+						<p *ngIf="data.status==1">Process</p>
+						<p *ngIf="data.status==2">Complete</p>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p>{{data.net_amount}}</p>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+	</ion-card>
+	<h3>Shipment details</h3>
+	<ion-card *ngIf='data' >
+			<ion-grid>
+				<ion-row>
+					<ion-col>
+						<h4>{{data.uname}}</h4>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p>House No.-{{data.address.house_no}}, Street No.-{{data.address.street_no}},{{data.address.landmark}} 
+							{{data.address.city}}, {{data.address.zip_code}}</p>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p>{{data.conno}}</p>
+					</ion-col>
+				</ion-row>
+			</ion-grid> -->
+		<!-- </ion-card> -->
+		<ion-grid>
+			<ion-row>
+				<ion-col size="2"></ion-col>
+				<ion-col size="8" >
+					<ion-button expand="block" color="danger" [routerLink]="['/home']">Continue shopping</ion-button>
+				</ion-col>
+				<ion-col size="2"></ion-col>
+			</ion-row>
+		</ion-grid>
+</ion-content>

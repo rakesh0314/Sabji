@@ -1,0 +1,81 @@
+<ion-header>
+    <ion-toolbar color="success" class="toolbar-color">
+        <ion-buttons slot="start">
+            <ion-menu-button> </ion-menu-button>
+        </ion-buttons>
+      <ion-title text-align="center">Product details</ion-title>
+      <!-- <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons> -->
+     <!--  <ion-grid>
+          <ion-row>
+              <ion-searchbar animated showCancelButton="focus"></ion-searchbar>
+          </ion-row>
+      </ion-grid> -->
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col *ngIf="product">
+                <h1 class="heading">{{product.name}} / {{product.sku}}
+                <ion-item>
+                  <ion-label>Quantity</ion-label>
+                  <ion-select (ionChange)="ChangeQty($event)">
+                    <ion-select-option *ngFor="let unit of product.units;let row=index" value="{{row}}" selected="row==0">{{unit.unit}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+                </h1>
+                <span>₹ {{product.units[row].sellprice}}</span>
+                <span class="price">Mrp: Rs <s>{{product.units[row].mrpprice}}</s></span>
+                <span class="discount">20% off</span>
+                <span class="taxes">(inclusive of all taxes)</span>
+
+            </ion-col>
+        </ion-row>
+        
+    </ion-grid>
+    <!-- Slider content -->
+    <ion-slides pager class="slider_border">
+        <ion-slide *ngIf="product">
+            <ion-img src="https://sabji.co.in/{{product.image}}" class="img"></ion-img>
+        </ion-slide>
+        <!-- <ion-slide>
+            <ion-img src="../assets/images/tomato_2.jpg" class="img"></ion-img>
+        </ion-slide>
+        <ion-slide>
+           <ion-img src="../assets/images/tomato_3.jpg" class="img"></ion-img>
+        </ion-slide> -->
+    </ion-slides>
+    <!-- Slider content end -->
+    <ion-grid>
+        <ion-row>
+            <ion-col class="border_bottom">
+                <h1 class="heading" *ngIf="product">{{product.name}}</h1>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <h2 class="h2">About</h2>
+    <p class="p" *ngIf="product">{{product.description}}</p>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="6">
+                
+                <ion-button expand="block" color="warning" href="home">
+                    Later<ion-icon name="bookmark" slot="end"></ion-icon>
+                </ion-button>
+              </ion-col>
+            <!-- <ion-col class="span_btns1 col_padding">
+                <a href=""><span style="text-align: center;"><ion-icon name="bookmark"></ion-icon> Save for later</span></a>
+            </ion-col> -->
+            <ion-col size="6">
+                <ion-button  expand="block" color="success" (click)="addToCart(product.id,product.units[row].unit_id)">
+                  Add <ion-icon name="cart" slot="end"></ion-icon>
+                </ion-button>
+              </ion-col>
+            <!-- <ion-col class="span_btns2 col_padding">
+                <a href="cart"><span style="text-align: center;"><ion-icon name="cart"></ion-icon> Add to Cart</span></a>
+            </ion-col> -->
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+	
+  <ion-toolbar color="success">
+    <ion-title>Enter OTP</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="registration"></ion-back-button>
+    </ion-buttons> 
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+	<br>
+	<br>
+		<p style="text-align: center;">We have sent you access code Via SMS for Mobile number verification</p>
+		<br>
+		<br>
+	<ion-grid>
+        <ion-row>
+        	<ion-col size="2"></ion-col>
+        	<ion-col>
+        		<ion-input text-center type="tel" name="first" maxlength="1" [(ngModel)]="enterotp.first" #otp1 required (keyup)="otpController($event,otp2,'')"></ion-input>
+        	</ion-col>
+        	<ion-col >
+        		<ion-input text-center type="tel" name="second" maxlength="1" [(ngModel)]="enterotp.second" #otp2 required (keyup)="otpController($event,otp3,otp1)"></ion-input>
+        	</ion-col>
+        	<ion-col >
+        		<ion-input text-center type="tel" name="third" maxlength="1" [(ngModel)]="enterotp.third" #otp3 required (keyup)="otpController($event,otp4,otp2)"></ion-input>
+        	</ion-col>
+        	<ion-col >
+        		<ion-input text-center type="tel" pattern="['0-9']*" name="fourth" maxlength="1" [(ngModel)]="enterotp.fourth" #otp4 required (keyup)="otpController($event,'',otp3)"></ion-input>
+        	</ion-col>
+        	<ion-col size="2"></ion-col>
+ 
+		</ion-row>
+	</ion-grid>
+	<ion-grid>
+		<ion-row>
+			<ion-col size="3"></ion-col>
+			<ion-col>
+				<ion-button type="submit" color="success" expand="block" (click)="checkotp()"[disabled]="disablebutton==1" >Verify</ion-button>
+			</ion-col>
+			<ion-col size="3"></ion-col>
+		</ion-row>
+	</ion-grid>
+	<p class="pclass">Didn't Received the OTP?</p>
+	<ion-grid>
+		<ion-row>
+			<ion-col size="3.5"></ion-col>
+			<ion-col size="5"><ion-button (click)="Resendotp()" [disabled]="resendotp==1" fill="clear"> Resend OTP</ion-button></ion-col>
+			<ion-col size="3.5"></ion-col>
+		</ion-row>
+	</ion-grid>
+            
+	
+</ion-content>

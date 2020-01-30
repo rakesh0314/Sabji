@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-toolbar color="success">
+  	<ion-buttons slot="start">
+         <ion-menu-button>
+         </ion-menu-button>
+      </ion-buttons>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="cartProduct">
+
+	<ion-grid >
+		<h1>Cart Details</h1>
+		<!-- <ion-item-divider></ion-item-divider> -->
+		<ion-card class="cart-size" *ngFor="let item of cartProduct;  let i=index">
+		<ion-row>
+			<ion-col size="4">
+				<img src="https://sabji.co.in/{{item.image}}">
+			</ion-col>
+			<ion-col size="3">
+				<h4>{{item.name}}/{{item.sku}}</h4>
+				<p class="price-margin">{{item.unit}}</p>
+				<p>Rs.{{item.sellprice}}</p>
+				
+			</ion-col>
+			<ion-col  size="5">
+				<ion-row>
+					<ion-col  size="4">
+					<ion-button size="small" color="danger"  class="counter-padding" (click)="qtyMinus(i)">-</ion-button>
+					</ion-col>
+					<ion-col  size="4">		
+					<ion-button size="small" fill="clear" class="margin-top-left text-black"> {{item.quantity}}</ion-button>
+					</ion-col>
+					<ion-col  size="4">
+					<ion-button size="small" color="success" class="counter-padding"  (click)="qtyPlus(i)">+</ion-button>
+					</ion-col>
+				</ion-row>
+			</ion-col>
+		
+		</ion-row>
+	</ion-card>
+	
+	</ion-grid>
+	<!-- <ion-infinite-scroll>
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data…">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
+
+
+
+</ion-content>
+
+
+<ion-item-divider *ngIf="cartProduct"></ion-item-divider>
+
+
+<ion-content *ngIf="cartProduct" style="--ion-background-color: #00bcd41f;">
+	<h1>Total amount</h1>
+	<ion-card>
+		<ion-row>
+			<ion-col size="6">
+				<p class="address_font">Product price : </p>
+			</ion-col>
+			<ion-col size="6">
+				<p class="address_font">Rs.{{total}}</p>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col size="6">
+				<p class="address_font">Product quantity : </p>
+			</ion-col>
+			<ion-col size="6">
+				<p class="address_font">{{prodQty}}</p>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col size="6">
+				<p class="address_font">Delivery charges</p>
+			</ion-col>
+			<ion-col size="6">
+				<p class="address_font">Rs.{{delCharge}}</p>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col size="6">
+				<p class="address_font">Total amount</p>
+			</ion-col>
+			<ion-col size="6">
+				<p class="address_font">Rs.{{totalAmount}}</p>
+			</ion-col>
+		</ion-row>
+	</ion-card>
+	<ion-grid>
+		<ion-row>
+			<ion-col size="2"></ion-col>
+			<ion-col>
+				<ion-button expand="block" size="medium" (click)="ProcessOrder(cartProduct)">Proceed to pay</ion-button>
+			</ion-col>
+			<ion-col size="2"></ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content> 
+		<ion-content *ngIf="cartProduct==null">
+			<ion-grid>
+				<ion-row>
+					<ion-col size="2"></ion-col>
+					<ion-col>
+						<ion-img src="../assets/images/empty_cart.jpg" class="margin"></ion-img>
+					</ion-col>
+					<ion-col size="2"></ion-col>
+				</ion-row>
+				<ion-grid>
+					<ion-row>
+						<ion-col size="3"></ion-col>
+						<ion-col>
+							<h4 class="font">Your cart is empty....</h4>
+							<ion-button expand="block" color="success" [routerLink]="['/home']" class="text-center">Shop Now</ion-button>
+						</ion-col>
+						<ion-col size="3"></ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-grid>
+		</ion-content>

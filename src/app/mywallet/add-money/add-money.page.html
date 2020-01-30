@@ -1,0 +1,27 @@
+<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Add money</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="mywallet" text="" icon="close"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-grid>
+		<ion-row>
+			<ion-col>
+			<ion-item>
+				<ion-label position="floating">Add Money</ion-label>
+			    <ion-input placeholder="₹ Amount" maxlength="5" minlength="2" type="number"></ion-input>
+			    </ion-item>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-button color="success" expand="block" size="medium" href="add-payment-option">Proceed to Add money</ion-button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

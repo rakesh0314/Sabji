@@ -1,0 +1,102 @@
+<ion-app>
+	<ion-split-pane>
+		<ion-menu side="start" type="overlay">
+			<ion-header>
+				<ion-toolbar color="success">
+					<ion-buttons slot="start" >
+							<ion-menu-button>
+					    		
+					    	</ion-menu-button>
+    				</ion-buttons>
+					<ion-title *ngIf="loggedStatus==0">Menu</ion-title>
+					<ion-title *ngIf="loggedStatus==1&&menudata" class="textsize" >Hello! <span class="name">{{menudata.clt_name}}</span></ion-title>
+    				<ion-buttons  *ngIf="loggedStatus==0" slot="end">
+							<ion-button [routerLink]="['login']"><ion-icon name="unlock" slot="end"></ion-icon></ion-button>
+					</ion-buttons>
+					<ion-buttons   *ngIf="loggedStatus==1" slot="end">
+						<ion-button  (click)="logout()"><ion-icon name="lock" slot="end"></ion-icon></ion-button>
+					</ion-buttons>
+				</ion-toolbar>
+			</ion-header>
+
+			<ion-content>
+				<ion-list>
+					<ion-menu-toggle auto-hide="false">
+						<ion-item [routerDirection]="'root'" [routerLink]="['home']">
+							<ion-icon name="home"  slot="start"></ion-icon>
+							<ion-label>Home</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					<!-- <ion-item href="/product-details">
+						<ion-icon name="product" slot="start"></ion-icon>
+						<ion-label>Product Details</ion-label>
+					</ion-item> -->
+					<ion-menu-toggle auto-hide="false">
+						<ion-item *ngIf="loggedStatus==1" [routerLink]="['mywallet']" >
+							<ion-icon name="wallet" slot="start"></ion-icon>
+							<ion-label>My wallet</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					<ion-menu-toggle auto-hide="false">
+						<ion-item *ngIf="loggedStatus==1" [routerDirection]="'root'" [routerLink]="['referrals']">
+							<ion-icon name="appstore" slot="start" ></ion-icon>
+							<ion-label>Referrals</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					<ion-menu-toggle auto-hide="false">
+						<ion-item *ngIf="loggedStatus==1"  [routerDirection]="'root'" [routerLink]="['orderhistory']">
+							<ion-icon name="refresh" slot="start" ></ion-icon>
+							<ion-label>Order history</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					<ion-menu-toggle auto-hide="false">
+						<ion-item *ngIf="loggedStatus==1" [routerLink]="['deliveryaddress/new']">
+							<ion-icon name="locate" slot="start" ></ion-icon>
+							<ion-label>Delivery address</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					<ion-menu-toggle auto-hide="false">
+						<ion-item *ngIf="loggedStatus==1" [routerDirection]="'root'" [routerLink]="['user-account']">
+							<ion-icon name="contact" slot="start"></ion-icon>
+							<ion-label>User Details</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					<ion-menu-toggle auto-hide="false">
+						<ion-item [routerDirection]="'root'" [routerLink]="['aboutus']">
+							<ion-icon name="information-circle-outline" slot="start"></ion-icon>
+							<ion-label>About us</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					
+					<ion-menu-toggle auto-hide="false">
+						<ion-item [routerDirection]="'root'" [routerLink]="['terms']">
+							<ion-icon name="information-circle-outline" slot="start"></ion-icon>
+							<ion-label>Terms and Conditions</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					<ion-menu-toggle auto-hide="false">
+						<ion-item [routerDirection]="'root'" [routerLink]="['contactus']">
+							<ion-icon name="call" slot="start" ></ion-icon>
+							<ion-label>Contact us</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					<ion-menu-toggle auto-hide="false">
+						<ion-item *ngIf="loggedStatus==0"[routerDirection]="'root'" [routerLink]="['login']">
+							<ion-icon name="unlock" slot="start"></ion-icon>
+							<ion-label>Login</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					<ion-menu-toggle auto-hide="false">
+						<ion-item *ngIf="loggedStatus==1" (click)="logout()">
+							<ion-icon name="lock" slot="start"></ion-icon>
+							<ion-label>Logout</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+				</ion-list>
+			</ion-content>
+
+		</ion-menu>
+		<ion-router-outlet main></ion-router-outlet>
+	</ion-split-pane>
+ <!--  <ion-router-outlet></ion-router-outlet> -->
+</ion-app>

@@ -1,0 +1,79 @@
+<ion-header translucent>
+    <ion-toolbar class="ion-toolbarCLS" color="success">
+        <ion-buttons slot="start">
+            <ion-menu-button> </ion-menu-button>
+        </ion-buttons>
+        <h3 class="header">Sabji</h3>
+        <ion-buttons slot="end">
+            <ion-button (click)="checkLogin()">
+                <ion-icon name="cart" slot="end"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <ion-slides pager *ngIf="banner">
+        <ion-slide *ngFor="let item of banner; let i = index">
+            <ion-img src="https://sabji.co.in/{{item.image}}" class="slider"></ion-img>
+        </ion-slide>
+        <!-- <ion-slide>
+            <ion-img src="../assets/images/slider_banner_2.jpg" class="slider"></ion-img>
+        </ion-slide>
+        <ion-slide>
+            <ion-img src="../assets/images/slider_banner_3.jpg" class="slider"></ion-img>
+        </ion-slide> -->
+    </ion-slides>
+</ion-header>
+<ion-content class="bg-color">
+     <ion-searchbar animated showCancelButton="focus" [(ngModel)]="searchItem" (ionChange)="searchProduct($event)" class="SearchClass"></ion-searchbar>
+    <!-- Segment with secondary color -->
+    <ion-row>
+        <ion-col>
+            <ion-item>
+            <ion-label>Category</ion-label>
+                <ion-select (ionChange)="serch_by_cat($event)">
+                    <ion-select-option value="" selected>All</ion-select-option>
+                    <ion-select-option *ngFor="let category of cate"  value="{{category.id}}">{{category.name}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <!-- <ion-segment (ionChange)="segmentChanged($event)" color="secondary">
+        <ion-segment-button (click)="GetAllProduct()">
+            <ion-label>All</ion-label>
+        </ion-segment-button>
+        <ion-segment-button *ngFor="let category of cate" value="{{category.name}}" (click)="serch_by_cat(category.id)">
+            <ion-label>{{category.name}}</ion-label>
+        </ion-segment-button>
+    </ion-segment>  -->
+    <ul *ngIf="product">
+        <li *ngFor="let item of product; let i=index;">
+            <ion-grid class="border-bottom">
+                <ion-row>
+                    <ion-col size="4">
+                        <ion-img src="{{url }}/{{item.image}}" [routerLink]="['/','product',item.id]"></ion-img>
+                    </ion-col>
+                    <ion-col size="8">
+                        <h5 class="text-size">{{item.name}}/{{item.sku}}
+                        </h5>
+                        <ion-item>
+                            <ion-label>Quantity</ion-label>
+                            <ion-select  (ionChange)="ChangeQty($event,i)" >
+                                <ion-select-option *ngFor="let unitdata of item.units;let j=index" [selected]="j == 0" value="{{j}}">{{unitdata.unit}}</ion-select-option>
+                            </ion-select>
+                        </ion-item>
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col size="6" >
+                                    <p class="price-margin">Mrp:<s>₹ {{item.mrpprice}}</s></p>
+                                    <p class="price-margin">Price:₹ {{item.sellprice}}</p>
+                                </ion-col>
+                                <ion-col size="6">
+                                    <ion-button color="success" class="add_bttn" expand="block" (click)="addToCart(item.id,item.unit)">Add</ion-button>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </li>
+    </ul>
+</ion-content>

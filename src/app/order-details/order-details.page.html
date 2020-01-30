@@ -1,0 +1,183 @@
+<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+<ion-header>
+  <ion-toolbar color="success">
+  	<ion-title>Order Details</ion-title>
+     <ion-buttons slot="start">
+        <ion-back-button defaultHref="home" text="" icon="close"></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="order">
+    <h3>Delivery address</h3>
+    <ion-card class="card">
+		<ion-grid>
+			<ion-row>
+				<ion-col size="12">
+					<h4>{{order.address.category}}</h4>
+					<p>House No - {{order.address.house_no}}, Street no - {{order.address.street_no}}, {{order.address.landmark}}, 
+						{{order.address.city}}, {{order.address.zip_code}}</p>
+				</ion-col>
+				<ion-col size="6">
+					<h6>Status:</h6>
+					<p *ngIf="order.status==0">Pending</p>
+					<p *ngIf="order.status==1">Process</p>
+					<p *ngIf="order.status==2">Complete</p>
+				</ion-col>
+				<ion-col size="6">
+					<h6>Date:</h6>
+					<p>{{order.date_time}}</p>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+     </ion-card>
+    <h3>Order Summary</h3>
+    <ion-card class="prd-card" *ngFor="let product of order.products">
+    	<ion-grid>
+    		<ion-row>
+    			<ion-col size="4">
+    				<ion-img src="{{url}}{{product.image}}"></ion-img>
+    			</ion-col>
+    			<ion-col size="8">
+    				 <h4>{{product.name}} / {{product.sku}}</h4>
+    				 <ion-row>
+    				 	<ion-col size="6">
+    				 		<p>Quantity:</p>
+    				 		<p>Amount:</p>
+    				 	</ion-col>
+    				 	<ion-col size="6">
+    				 		<p>{{product.qty}} x {{product.unit}}</p>
+    				 		<p>Rs. {{product.sellprice}}</p>
+    				 	</ion-col>
+    				 </ion-row>
+    			</ion-col>
+    		</ion-row>
+    	</ion-grid>
+	 </ion-card>
+	 <ion-grid>
+		 <ion-row>
+			 <ion-col>
+				 <ion-button color="danger" expand="block" [routerLink]="['/home']">Cancel Order</ion-button>
+			 </ion-col>
+		 </ion-row>
+	 </ion-grid>
+ </ion-content>
+<!-- <ion-content *ngIf="order">
+	<h5>Delivery details</h5>
+	<ion-card *ngIf="order.status==0" >
+		<ion-grid>
+			<ion-row>
+				<ion-col>
+					<h6>Delivery Pending</h6>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-card>
+	<ion-card *ngIf="order.status!=0" >
+			<ion-grid>
+				<ion-row>
+					<ion-col>
+						<h6>Day Date Month Year</h6>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p>Order number</p>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p>Rs.XXXX</p>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col size="6">
+						<p>Quantity</p>
+					</ion-col>
+					<ion-col size="6">
+						<p>Order status</p>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card>
+		<h5>Address details</h5>
+		<ion-card>
+			<ion-grid>
+				<ion-row>
+					<ion-col>
+						<h6>{{order.uname}}</h6>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p>House No.-{{order.address.house_no}}, Street No.-{{order.address.street_no}}, {{order.address.landmark}} 
+							{{order.address.city}}, {{order.address.zip_code}}</p>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p>{{order.conno}}</p>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card>
+		<h5>Payment details</h5>
+		<ion-card>
+			<ion-grid>
+				<ion-row>
+					<ion-col>
+						<h6>Order{{order.id}}</h6>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p>{{order.bill_no}}</p>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p *ngIf="order.paid_status==1">Online Payment</p>
+						<p *ngIf="order.paid_status==2">Cash On Delivery</p>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p>{{order.service_charge}}</p>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col size="6">
+						<p>{{order.quantity}}</p>
+					</ion-col>
+					<ion-col size="6">
+						<p *ngIf="order.status==0">Pending</p>
+						<p *ngIf="order.status==1">Process</p>
+						<p *ngIf="order.status==2">Complete</p>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p>{{order.net_amount}}</p>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card>
+		<h5>Products Details</h5>
+		<ion-card *ngFor="let product of order.products"> 
+			<ion-grid>
+				<ion-row>
+					<ion-col size="4">
+						<ion-img class="pro-img" src="https://sabji.co.in/{{product.image}}"></ion-img>
+					</ion-col>
+					<ion-col size="8">
+						<ion-row>
+							<ion-col>{{product.qty}} x {{product.name}} ({{product.unit}})</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col>Rs. {{product.qty*product.sellprice}}</ion-col>
+						</ion-row>
+					</ion-col>
+				</ion-row>
+				
+			</ion-grid>
+		</ion-card>
+</ion-content> -->
