@@ -32,7 +32,7 @@
 				</ion-col>
 			</ng-template> 
   			<ion-col size="2">
-  				<ion-button color="tertiary" size='small' [routerLink]="['/deliveryaddress/url']">Change</ion-button>
+  				<ion-button class="btn-p" color="tertiary" size='small' [routerLink]="['/deliveryaddress/url']">Change</ion-button>
   			</ion-col>
   		</ion-row>
   	</ion-grid>
@@ -75,8 +75,7 @@
         </ion-radio-group>
   	<ion-row>
   		<ion-col>
-					  
-  			<ion-button expand="block" [disabled]="address==''" size='medium' (click)="placeOrder()">Place order</ion-button>
+  			<ion-button  expand="block" [disabled]="address==''" size='medium' (click)="placeOrder()">Place order</ion-button>
   		</ion-col>
 	  </ion-row>
 	  </ion-list>
